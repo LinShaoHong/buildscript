@@ -1,0 +1,16 @@
+apply plugin: "net.ltgt.apt-idea"
+
+dependencies {
+  annotationProcessor "org.immutables:value:$vers.immutables"
+  testAnnotationProcessor "org.immutables:value:$vers.immutables"
+  compileOnly "org.immutables:value:$vers.immutables:annotations"
+  testCompileOnly "org.immutables:value:$vers.immutables:annotations"
+}
+
+idea {
+  module {
+    apt {
+      mainDependenciesScope = "COMPILE"
+    }
+  }
+}

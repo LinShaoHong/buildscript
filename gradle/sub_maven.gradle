@@ -1,0 +1,40 @@
+def user = "admin"
+def pwd = "lin0411"
+
+apply plugin: 'maven-publish'
+
+task sourceJar(type: Jar, dependsOn: classes) {
+  from sourceSets.main.allJava
+}
+
+publishing {
+  publications {
+    sub_maven(MavenPublication) {
+      from components.java
+
+      artifact sourceJar {
+        classifier "sources"
+      }
+
+      pom.withXml {
+        asNode().with {
+          appendNode('packaging', 'jar')
+          appendNode('name', project.name)
+          appendNode('description', rootProject.name + ' application')
+          appendNode('url', 'http://git.lins.com/' + rootProject.name)
+        }
+      }
+    }
+  }
+  repositories {
+    maven {
+      credentials {
+        username = user
+        password = pwd
+      }
+      url = VersionNumber.parse((String) project.version).qualifier == "SNAPSHOT" ?
+        "http://repo.lins.com/repository/lins-maven-snapshots/" :
+        "http://repo.lins.com/repository/lins-maven-releases/"
+    }
+  }
+}

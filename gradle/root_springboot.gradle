@@ -1,0 +1,7 @@
+subprojects {
+  buildscript {
+    dependencies {
+      classpath "org.springframework.boot:spring-boot-gradle-plugin:$vers.springboot"
+    }
+  }
+}

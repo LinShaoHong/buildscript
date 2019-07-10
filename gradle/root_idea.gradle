@@ -1,0 +1,34 @@
+allprojects {
+  apply plugin: 'idea'
+}
+
+subprojects {
+  apply plugin: 'java'
+
+  sourceCompatibility = JavaVersion.VERSION_1_8
+  targetCompatibility = JavaVersion.VERSION_1_8
+
+  group = rootProject.group
+  version = rootProject.version
+
+  idea {
+    module {
+      downloadSources = true
+    }
+  }
+
+  compileJava {
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+  }
+}
+
+idea {
+  project {
+    jdkName = '1.8'
+    languageLevel = '1.8'
+  }
+
+  module {
+    downloadSources = true
+  }
+}

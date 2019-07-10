@@ -1,0 +1,13 @@
+apply plugin: "org.springframework.boot"
+apply plugin: "io.spring.dependency-management"
+
+dependencies {
+  implementation "org.springframework.boot:spring-boot-starter-web"
+  implementation "org.springframework.boot:spring-boot-dependencies:$vers.springboot"
+}
+
+dependencyManagement {
+  imports {
+    mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR1'
+  }
+}
