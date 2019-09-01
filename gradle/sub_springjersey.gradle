@@ -1,0 +1,12 @@
+apply plugin: "org.springframework.boot"
+
+dependencies {
+  implementation("org.springframework.boot:spring-boot-starter-jersey:$vers.springboot") {
+    exclude group: 'org.glassfish.jersey.media', module: 'jersey-media-json-jackson'
+  }
+  implementation("io.springfox:springfox-swagger2:$vers.springfox") {
+    exclude group: 'org.springframework'
+  }
+  implementation "org.springframework:spring-webmvc:$vers.spring" // for swagger-ui
+  implementation "io.springfox:springfox-swagger-ui:$vers.springfox"
+}

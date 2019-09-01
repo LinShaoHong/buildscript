@@ -4,4 +4,7 @@ subprojects {
       classpath "org.springframework.boot:spring-boot-gradle-plugin:$vers.springboot"
     }
   }
+  dependencies {
+    implementation "org.springframework:spring-context:$vers.spring"
+  }
 }

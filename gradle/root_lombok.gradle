@@ -1,0 +1,8 @@
+subprojects {
+  dependencies {
+    implementation "org.projectlombok:lombok:$vers.lombok"
+    annotationProcessor "org.projectlombok:lombok:$vers.lombok"
+    testImplementation "org.projectlombok:lombok:$vers.lombok"
+    testAnnotationProcessor "org.projectlombok:lombok:$vers.lombok"
+  }
+}
