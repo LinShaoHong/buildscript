@@ -26,15 +26,14 @@ publishing {
       }
     }
   }
+
   repositories {
     maven {
       credentials {
         username = user
         password = pwd
       }
-//      url = VersionNumber.parse((String) project.version).qualifier == "SNAPSHOT" ?
-//        "http://repo.lins.com/repository/lins-maven-snapshots/" :
-//        "http://repo.lins.com/repository/lins-maven-releases/"
+      url = "http://repo.lins.com/repository/lins-maven-snapshots/"
     }
   }
 }
