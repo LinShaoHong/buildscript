@@ -1,0 +1,7 @@
+subprojects {
+  buildscript {
+    dependencies {
+      classpath "gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:$vers.jib"
+    }
+  }
+}

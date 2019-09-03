@@ -1,10 +1,9 @@
 allprojects {
-  apply plugin: 'idea'
+  apply plugin: "idea"
+  apply plugin: "java"
 }
 
 subprojects {
-  apply plugin: 'java'
-
   sourceCompatibility = JavaVersion.VERSION_1_8
   targetCompatibility = JavaVersion.VERSION_1_8
 
@@ -24,8 +23,8 @@ subprojects {
 
 idea {
   project {
-    jdkName = '1.8'
-    languageLevel = '1.8'
+    jdkName = "1.8"
+    languageLevel = "1.8"
   }
 
   module {

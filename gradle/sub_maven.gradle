@@ -1,7 +1,9 @@
-def user = "admin"
-def pwd = "lin0411"
+import org.gradle.util.VersionNumber
 
-apply plugin: 'maven-publish'
+def user = System.properties["repoUser"]
+def pwd = System.properties["repoPass"]
+
+apply plugin: "maven-publish"
 
 task sourceJar(type: Jar, dependsOn: classes) {
   from sourceSets.main.allJava
@@ -16,13 +18,11 @@ publishing {
         classifier "sources"
       }
 
-      pom.withXml {
-        asNode().with {
-          appendNode('packaging', 'jar')
-          appendNode('name', project.name)
-          appendNode('description', rootProject.name + ' application')
-          appendNode('url', 'http://git.lins.com/' + rootProject.name)
-        }
+      pom {
+        packaging = "jar"
+        name = project.name
+        description = rootProject.name + " application"
+        url = "http://git.lins.com/" + rootProject.name
       }
     }
   }
@@ -33,7 +33,9 @@ publishing {
         username = user
         password = pwd
       }
-      url = "http://repo.lins.com/repository/lins-maven-snapshots/"
+      url = VersionNumber.parse((String) project.version).qualifier == "SNAPSHOT" ?
+        "http://repo.lins.com/repository/lins-maven-snapshots/" :
+        "http://repo.lins.com/repository/lins-maven-releases/"
     }
   }
 }
