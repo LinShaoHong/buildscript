@@ -1,7 +1,7 @@
 import org.gradle.util.VersionNumber
 
 def user = System.properties["repoUser"]
-def pwd = System.properties["repoPass"]
+def pwd = System.properties["repoPassword"]
 
 apply plugin: "maven-publish"
 
@@ -17,13 +17,6 @@ publishing {
       artifact sourceJar {
         classifier "sources"
       }
-
-      pom {
-        packaging = "jar"
-        name = project.name
-        description = rootProject.name + " application"
-        url = "http://git.lins.com/" + rootProject.name
-      }
     }
   }
 
@@ -34,8 +27,8 @@ publishing {
         password = pwd
       }
       url = VersionNumber.parse((String) project.version).qualifier == "SNAPSHOT" ?
-        "http://repo.lins.com/repository/lins-maven-snapshots/" :
-        "http://repo.lins.com/repository/lins-maven-releases/"
+        "http://repo.sun.com/repository/sun-maven-snapshots/" :
+        "http://repo.sun.com/repository/sun-maven-releases/"
     }
   }
 }

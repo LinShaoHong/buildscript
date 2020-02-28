@@ -1,3 +1,6 @@
+def user = System.properties["repoUser"]
+def pwd = System.properties["repoPassword"]
+
 allprojects {
   buildscript {
     repositories {
@@ -14,6 +17,13 @@ allprojects {
     mavenCentral()
     maven {
       url "https://jitpack.io"
+    }
+    maven {
+      credentials {
+        username = user
+        password = pwd
+      }
+      url "http://repo.sun.com/repository/maven-public"
     }
   }
 }
