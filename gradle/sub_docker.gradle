@@ -1,0 +1,30 @@
+apply plugin: "com.google.cloud.tools.jib"
+
+import org.gradle.util.internal.VersionNumber
+
+def user = System.properties["dockerUser"]
+def pass = System.properties["dockerPass"]
+def version = project.version == null ? "1.0.0" :
+  VersionNumber.parse((String) project.version).baseVersion
+def imageName = project.projectDir.getAbsoluteFile().getName()
+def aliRepoURI = "registry.cn-hangzhou.aliyuncs.com"
+
+jib {
+  from {
+    image = aliRepoURI + "/linsh_components/oracle-jre:11"
+    auth {
+      username = user
+      password = pass
+    }
+  }
+  to {
+    image = aliRepoURI + "/linsh_sun/" + imageName + ":" + version
+    auth {
+      username = user
+      password = pass
+    }
+  }
+  container {
+    mainClass = "$mainClass"
+  }
+}
