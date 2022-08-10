@@ -1,7 +1,0 @@
-subprojects {
-  buildscript {
-    dependencies {
-      classpath "net.ltgt.gradle:gradle-apt-plugin:0.18"
-    }
-  }
-}
