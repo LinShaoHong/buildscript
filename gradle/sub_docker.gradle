@@ -2,10 +2,16 @@ apply plugin: "com.google.cloud.tools.jib"
 
 import org.gradle.util.internal.VersionNumber
 
+import java.text.SimpleDateFormat
+
 def user = System.properties["dockerUser"]
 def pass = System.properties["dockerPass"]
+
+def date = new SimpleDateFormat("yyyyMMdd").format(new Date())
 def version = project.version == null ? "1.0.0" :
   VersionNumber.parse((String) project.version).baseVersion
+def tag = date + "-" + version.toString()
+
 def imageName = project.projectDir.getAbsoluteFile().getName()
 def aliRepoURI = "registry.cn-hangzhou.aliyuncs.com"
 
@@ -18,13 +24,10 @@ jib {
     }
   }
   to {
-    image = aliRepoURI + "/linsh_sun/" + imageName + ":" + version
+    image = aliRepoURI + "/linsh_sun/" + imageName + ":" + tag
     auth {
       username = user
       password = pass
     }
-  }
-  container {
-    mainClass = "$mainClass"
   }
 }
