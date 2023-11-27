@@ -6,12 +6,8 @@ import org.gradle.util.internal.VersionNumber
 def user = System.properties["dockerUser"]
 def pass = System.properties["dockerPass"]
 
-<<<<<<< HEAD
 def version = project.version == null ? "1.0.0" :
   VersionNumber.parse((String) project.version).baseVersion
-=======
-def version = VersionNumber.parse((String) project.version).baseVersion
->>>>>>> 8b5d394 (fix)
 def tag = version.toString()
 
 def imageName = project.projectDir.getAbsoluteFile().getName()
