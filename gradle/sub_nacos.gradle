@@ -1,0 +1,4 @@
+dependencies {
+  implementation "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:$vers.nacos"
+  implementation "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:$vers.nacos"
+}
