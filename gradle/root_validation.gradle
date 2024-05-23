@@ -1,5 +1,6 @@
 subprojects {
   dependencies {
     implementation "javax.validation:validation-api:2.0.1.Final"
+    implementation "javax.inject:javax.inject:1"
   }
 }
