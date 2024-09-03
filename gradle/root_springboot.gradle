@@ -1,11 +1,11 @@
 subprojects {
-  buildscript {
-    dependencies {
-      classpath "org.springframework.boot:spring-boot-gradle-plugin:$vers.springboot"
+    buildscript {
+        dependencies {
+            classpath "org.springframework.boot:spring-boot-gradle-plugin:$vers.springboot"
+        }
     }
-  }
-  dependencies {
-    implementation "org.springframework:spring-context:$vers.spring"
-    implementation "org.springframework.boot:spring-boot:$vers.springboot"
-  }
+    dependencies {
+        implementation "org.springframework:spring-context:$vers.spring"
+        implementation "org.springframework.boot:spring-boot:$vers.springboot"
+    }
 }

@@ -1,7 +1,7 @@
 apply plugin: "org.springframework.boot"
 
 dependencies {
-  implementation("org.springframework.boot:spring-boot-starter-jersey:$vers.springboot") {
-    exclude group: 'org.glassfish.jersey'
-  }
+    implementation("org.springframework.boot:spring-boot-starter-jersey:$vers.springboot") {
+        exclude group: 'org.glassfish.jersey'
+    }
 }

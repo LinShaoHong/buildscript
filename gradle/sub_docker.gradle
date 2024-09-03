@@ -7,25 +7,25 @@ def user = System.properties["dockerUser"]
 def pass = System.properties["dockerPass"]
 
 def version = project.version == null ? "1.0.0" :
-  VersionNumber.parse((String) project.version).baseVersion
+        VersionNumber.parse((String) project.version).baseVersion
 def tag = version.toString()
 
 def imageName = project.projectDir.getAbsoluteFile().getName()
 def aliRepoURI = "registry.cn-hangzhou.aliyuncs.com"
 
 jib {
-  from {
-    image = aliRepoURI + "/linsh_components/oracle-jre:11"
-    auth {
-      username = user
-      password = pass
+    from {
+        image = aliRepoURI + "/linsh_components/oracle-jre:11"
+        auth {
+            username = user
+            password = pass
+        }
     }
-  }
-  to {
-    image = aliRepoURI + "/linsh_sun/" + imageName + ":" + tag
-    auth {
-      username = user
-      password = pass
+    to {
+        image = aliRepoURI + "/linsh_sun/" + imageName + ":" + tag
+        auth {
+            username = user
+            password = pass
+        }
     }
-  }
 }

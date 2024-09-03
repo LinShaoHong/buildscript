@@ -6,29 +6,29 @@ def pwd = System.properties["repoPassword"]
 apply plugin: "maven-publish"
 
 task sourceJar(type: Jar, dependsOn: classes) {
-  from sourceSets.main.allJava
+    from sourceSets.main.allJava
 }
 
 publishing {
-  publications {
-    sub_maven(MavenPublication) {
-      from components.java
+    publications {
+        sub_maven(MavenPublication) {
+            from components.java
 
-      artifact sourceJar {
-        classifier "sources"
-      }
+            artifact sourceJar {
+                classifier "sources"
+            }
+        }
     }
-  }
 
-  repositories {
-    maven {
-      credentials {
-        username = user
-        password = pwd
-      }
-      url = VersionNumber.parse((String) project.version).qualifier == "SNAPSHOT" ?
-        "http://repo.sun.com/repository/sun-maven-snapshots/" :
-        "http://repo.sun.com/repository/sun-maven-releases/"
+    repositories {
+        maven {
+            credentials {
+                username = user
+                password = pwd
+            }
+            url = VersionNumber.parse((String) project.version).qualifier == "SNAPSHOT" ?
+                    "http://repo.sun.com/repository/sun-maven-snapshots/" :
+                    "http://repo.sun.com/repository/sun-maven-releases/"
+        }
     }
-  }
 }

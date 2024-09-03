@@ -1,34 +1,34 @@
 allprojects {
-  apply plugin: "idea"
-  apply plugin: "java"
-  apply plugin: "java-library"
+    apply plugin: "idea"
+    apply plugin: "java"
+    apply plugin: "java-library"
 }
 
 subprojects {
-  sourceCompatibility = JavaVersion.VERSION_11
-  targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 
-  group = rootProject.group
-  version = rootProject.version
+    group = rootProject.group
+    version = rootProject.version
 
-  idea {
-    module {
-      downloadSources = true
+    idea {
+        module {
+            downloadSources = true
+        }
     }
-  }
 
-  compileJava {
-    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-  }
+    compileJava {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+    }
 }
 
 idea {
-  project {
-    jdkName = "11"
-    languageLevel = "11"
-  }
+    project {
+        jdkName = "11"
+        languageLevel = "11"
+    }
 
-  module {
-    downloadSources = true
-  }
+    module {
+        downloadSources = true
+    }
 }

@@ -1,6 +1,6 @@
 dependencies {
-  annotationProcessor "org.immutables:value:$vers.immutables"
-  testAnnotationProcessor "org.immutables:value:$vers.immutables"
-  compileOnly "org.immutables:value:$vers.immutables:annotations"
-  testCompileOnly "org.immutables:value:$vers.immutables:annotations"
+    annotationProcessor "org.immutables:value:$vers.immutables"
+    testAnnotationProcessor "org.immutables:value:$vers.immutables"
+    compileOnly "org.immutables:value:$vers.immutables:annotations"
+    testCompileOnly "org.immutables:value:$vers.immutables:annotations"
 }
